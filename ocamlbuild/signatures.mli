@@ -380,6 +380,7 @@ module type OPTIONS = sig
   val ocamlyacc : command_spec ref
   val ocamllex : command_spec ref
   val ocamlrun : command_spec ref
+  val camlp4o  : command_spec ref
   val ocamlmklib : command_spec ref
   val ocamlmktop : command_spec ref
   val hygiene : bool ref
