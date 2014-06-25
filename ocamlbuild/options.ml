@@ -92,6 +92,7 @@ let ocamllex = ref (V"OCAMLLEX")
 let ocamlmklib = ref (V"OCAMLMKLIB")
 let ocamlmktop = ref (V"OCAMLMKTOP")
 let ocamlrun = ref N
+let camlp4o  = ref N
 let ocamlfind_cmd = ref (V"OCAMLFIND")
 let ocamlfind arg = S[!ocamlfind_cmd; arg]
 let program_to_execute = ref false
@@ -237,8 +238,8 @@ let spec = ref (
    (* Not set since we perhaps want to replace ocamlmklib *)
    (* "-ocamlmklib", set_cmd ocamlmklib, "<command> Set the ocamlmklib tool"; *)
    "-ocamlmktop", set_cmd ocamlmktop, "<command> Set the ocamlmktop tool";
-   "-ocamlrun", set_cmd ocamlrun, "<command> Set the ocamlrun tool";
-
+   "-ocamlrun", set_cmd ocamlrun, "<command> set the ocamlrun tool";
+   "-camlp4o", set_cmd camlp4o, "<command> set the camlp4o tool";
    "--", Rest (fun x -> program_to_execute := true; add_to' program_args_internal x),
    " Stop argument processing, remaining arguments are given to the user program";
   ])
