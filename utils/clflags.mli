@@ -65,7 +65,7 @@ val o3_arguments : inlining_arguments
 (** Set all the inlining arguments for a round.
     The default is set if no round is provided. *)
 val use_inlining_arguments_set : ?round:int -> inlining_arguments -> unit
-
+val implicit_interface : bool ref
 val objfiles : string list ref
 val ccobjs : string list ref
 val dllibs : string list ref

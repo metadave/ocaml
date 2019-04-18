@@ -39,7 +39,7 @@ let usage = "Usage: ocamlopt <options> <files>\nOptions are:"
 module Options = Main_args.Make_optcomp_options (struct
   let set r () = r := true
   let clear r () = r := false
-
+  let _no_implicit_interface = clear implicit_interface
   let _a = set make_archive
   let _absname = set Clflags.absname
   let _afl_instrument = set afl_instrument

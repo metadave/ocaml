@@ -155,6 +155,7 @@ module type Bytetop_options = sig
 end;;
 
 module type Optcommon_options = sig
+  val _no_implicit_interface : unit -> unit
   val _compact : unit -> unit
   val _inline : string -> unit
   val _inline_toplevel : string -> unit

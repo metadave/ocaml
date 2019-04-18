@@ -13,6 +13,11 @@
 (*                                                                        *)
 (**************************************************************************)
 
+let mk_no_implicit_interface f =
+  "-no-implicit-interface", Arg.Unit f, " No implicit interface"
+;;
+
+
 let mk_a f =
   "-a", Arg.Unit f, " Build a library"
 ;;
@@ -989,6 +994,7 @@ module type Bytetop_options = sig
 end;;
 
 module type Optcommon_options = sig
+  val _no_implicit_interface : unit -> unit
   val _compact : unit -> unit
   val _inline : string -> unit
   val _inline_toplevel : string -> unit
@@ -1253,6 +1259,7 @@ end;;
 module Make_optcomp_options (F : Optcomp_options) =
 struct
   let list = [
+    mk_no_implicit_interface F._no_implicit_interface;
     mk_a F._a;
     mk_alert F._alert;
     mk_absname F._absname;
@@ -1404,6 +1411,7 @@ end;;
 
 module Make_opttop_options (F : Opttop_options) = struct
   let list = [
+    mk_no_implicit_interface F._no_implicit_interface;
     mk_absname F._absname;
     mk_alert F._alert;
     mk_compact F._compact;
